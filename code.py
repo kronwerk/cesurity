@@ -3,12 +3,12 @@ import view, config
 from view import render
 
 urls = (
-    '/', 'index'
+    '/(.*)', 'index'
 )
 
 class index:
-    def GET(self):
-        return render.base(view.listing())
+    def GET(self, name):
+        return render.base(view.listing(name))
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
