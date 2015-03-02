@@ -11,4 +11,9 @@ render._keywords['globals']['render'] = render
 
 def listing(**k):
     l = db.listing(**k)
-    return render.listing(l)
+    print "view.listing 1", dir(l)
+    lst = []
+    for _ in l:
+        print "view.listing", _
+        lst.append(_)
+    return render.listing(lst)
